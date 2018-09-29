@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/if_Cancel_131742.png</file>
+        <file>images/if_cash_register_17219.png</file>
+        <file>images/if_document-open_118911.png</file>
+        <file>images/if_list-add_118777.png</file>
+        <file>images/if_Ok_131848.png</file>
+        <file>images/if_view-refresh_118801.png</file>
+        <file>images/40631a41976a4206ba7a9db247186502.png</file>
+    </qresource>
+</RCC>
