@@ -54,7 +54,7 @@ void MainWindow::on_addPushButton_clicked()
 
 }
 
-//llama a una ventana dialog para hacer el recaudo, limpiano toda la tabla
+//llama a una ventana dialog para hacer el recaudo, limpiando toda la tabla
 void MainWindow::on_okPushButton_clicked()
 {
     int filas=0;
@@ -114,10 +114,10 @@ void MainWindow::removeRow()
         ui->CantProductSpinBox->setValue(ui->tableWidget->rowCount());
         ui->totalSpinBox->setValue(total);
     }else{
-        QWidget *w = qobject_cast<QWidget *>(sender()->parent());
+        QWidget *w = qobject_cast<QWidget*>(sender());
         if(w){
             int row = ui->tableWidget->indexAt(w->pos()).row();
-            int fila=row+1;
+            int fila=row;
             QTableWidgetItem *item =ui->tableWidget->item(fila,1);
             value= item->text().toInt();
             ui->tableWidget->removeRow(fila);
@@ -128,6 +128,7 @@ void MainWindow::removeRow()
             ui->CantProductSpinBox->setValue(ui->tableWidget->rowCount());
             ui->totalSpinBox->setValue(total);
         }
+
 
 
     }
