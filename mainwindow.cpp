@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "adddialog.h"
 #include "cashdialog.h"
+#include <QMessageBox>
 
 int MainWindow::total=0;
 
@@ -57,14 +58,25 @@ void MainWindow::on_addPushButton_clicked()
 //llama a una ventana dialog para hacer el recaudo, limpiando toda la tabla
 void MainWindow::on_okPushButton_clicked()
 {
+
     int filas=0;
-    CashDialog cd(total);
-    cd.exec();
     filas=ui->tableWidget->rowCount();
-    while(filas>0){
-        ui->tableWidget->removeRow(filas-1);
-        filas--;
+    if(filas==0){
+        QMessageBox::warning(
+               this,
+               tr("QCash"),
+               tr("No se han ingresado productos.") );
+    }else{
+        CashDialog cd(total);
+        cd.exec();
+
+        while(filas>0){
+            ui->tableWidget->removeRow(filas-1);
+            filas--;
+        }
+
     }
+
 
     ui->totalSpinBox->setValue(0);
     ui->CantProductSpinBox->setValue(0);
